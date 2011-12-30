@@ -1,5 +1,5 @@
 (function() {
-  var mongoPort, mongoServer, net, outClient, rep, util, zmqUri;
+  var mongoPort, mongoServer, net, rep, util, zmqUri;
 
   mongoPort = 27017;
 
@@ -13,11 +13,8 @@
 
   rep = require('zmq').socket('rep');
 
-  outClient = net.connect(mongoPort, mongoServer, function() {
-    return console.log("Writing to " + mongoPort);
-  });
-
   rep.on('message', function(msg) {
+    var outClient;
     outClient = net.connect(mongoPort, mongoServer);
     outClient.on('data', function(buf) {
       return rep.send(buf);

@@ -5,9 +5,6 @@ util = require('util')
 net = require('net')
 rep = require('zmq').socket('rep')
 
-outClient = net.connect mongoPort, mongoServer, ()->
-  console.log "Writing to #{mongoPort}"
-
 rep.on 'message', (msg)->
 
   outClient = net.connect(mongoPort, mongoServer)
