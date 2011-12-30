@@ -11,10 +11,7 @@ outClient = net.connect mongoPort, mongoServer, ()->
 rep.on 'message', (msg)->
 
   outClient = net.connect(mongoPort, mongoServer)
-
-  outClient.on 'data', (buf)->
-    rep.send buf
-
+  outClient.on 'data', (buf)-> rep.send(buf)
   outClient.end msg
 
 rep.bind zmqUri

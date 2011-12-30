@@ -11,15 +11,10 @@ console.log "Requesting from #{zmqUri}"
 inServer = net.createServer (inStream)->
   
   inStream.on 'connect', ()->
+  inStream.on 'data', (buf)-> req.send(buf)
+  inStream.on 'end', (buf)-> console.log('client disconnected')
 
-  inStream.on 'data', (buf)->
-    req.send buf
-
-  inStream.on 'end', (buf)->
-    console.log 'client disconnected'
-
-  req.on 'message', (msg)->
-    inStream.write msg
+  req.on 'message', (msg)-> inStream.write(msg)
 
 console.log "Listing on #{connPort}"
 inServer.listen connPort, connServer
