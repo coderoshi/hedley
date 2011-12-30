@@ -18,17 +18,13 @@
   });
 
   rep.on('message', function(msg) {
-    console.log("ocd: " + msg);
     outClient = net.connect(mongoPort, mongoServer);
     outClient.on('data', function(buf) {
-      console.log("to0mq: " + buf);
       return rep.send(buf);
     });
     return outClient.end(msg);
   });
 
-  rep.bind(zmqUri, function() {
-    return console.log("Responding to " + zmqUri);
-  });
+  rep.bind(zmqUri);
 
 }).call(this);

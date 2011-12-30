@@ -9,13 +9,12 @@ outClient = net.connect mongoPort, mongoServer, ()->
   console.log "Writing to #{mongoPort}"
 
 rep.on 'message', (msg)->
-  console.log "ocd: #{msg}"
 
   outClient = net.connect(mongoPort, mongoServer)
+
   outClient.on 'data', (buf)->
-    console.log "to0mq: #{buf}"
     rep.send buf
+
   outClient.end msg
 
-rep.bind zmqUri, ->
-  console.log "Responding to #{zmqUri}"
+rep.bind zmqUri

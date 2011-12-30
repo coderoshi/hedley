@@ -8,3 +8,9 @@ An experiment in routing MongoDB requests via 0mq to all sorts of neat shapes an
 
     npm install
     coffee -o build -c lib/*.coffee
+
+## Running
+
+    node build/catcher.js &
+    node build/router.js &
+    mongo localhost:1337

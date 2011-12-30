@@ -18,18 +18,14 @@
   console.log("Requesting from " + zmqUri);
 
   inServer = net.createServer(function(inStream) {
-    inStream.on('connect', function() {
-      return console.log('is connected');
-    });
+    inStream.on('connect', function() {});
     inStream.on('data', function(buf) {
-      console.log("isd: " + buf);
       return req.send(buf);
     });
     inStream.on('end', function(buf) {
-      return console.log('is ended');
+      return console.log('client disconnected');
     });
     return req.on('message', function(msg) {
-      console.log("to0mq: " + (msg.toString()));
       return inStream.write(msg);
     });
   });
