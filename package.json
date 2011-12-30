@@ -1,0 +1,30 @@
+{
+  "author": "Eric Redmond <eric@mongohq.com>",
+  "name": "mongohq",
+  "description": "MongoHQ Message Router",
+  "version": "0.2.0",
+  "homepage": "http://mongohq.com/",
+  "preferGlobal": "true",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mongohq/mongohq-nodejs.git"
+  },
+  "keywords": ["mongohq", "mongodb", "router", "0mq"],
+  "engines": {
+    "node": ">0.4.3"
+  },
+  "dependencies": {
+    "zmq": ">=2.0.0",
+  },
+  "devDependencies": {
+    "vows": ">=0.5.0",
+    "coffee-script": ">=1.2.0"
+  },
+  "directories": {
+    "test": "./test",
+    "lib":  "./lib"
+  },
+  "scripts": {
+    "test": "vows --spec"
+  }
+}
