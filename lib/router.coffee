@@ -1,7 +1,6 @@
 connPort = 1337
 connServer = 'localhost'
 zmqUri = 'tcp://127.0.0.1:3000'
-util = require('util')
 net = require('net')
 req = require('zmq').socket('req')
 

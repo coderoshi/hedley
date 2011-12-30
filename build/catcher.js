@@ -1,13 +1,11 @@
 (function() {
-  var mongoPort, mongoServer, net, rep, util, zmqUri;
+  var mongoPort, mongoServer, net, rep, zmqUri;
 
   mongoPort = 27017;
 
   mongoServer = 'localhost';
 
   zmqUri = 'tcp://127.0.0.1:3000';
-
-  util = require('util');
 
   net = require('net');
 

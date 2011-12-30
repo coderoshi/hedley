@@ -1,13 +1,11 @@
 (function() {
-  var connPort, connServer, inServer, net, req, util, zmqUri;
+  var connPort, connServer, inServer, net, req, zmqUri;
 
   connPort = 1337;
 
   connServer = 'localhost';
 
   zmqUri = 'tcp://127.0.0.1:3000';
-
-  util = require('util');
 
   net = require('net');
 

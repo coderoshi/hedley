@@ -1,7 +1,6 @@
 mongoPort = 27017
 mongoServer = 'localhost'
 zmqUri = 'tcp://127.0.0.1:3000'
-util = require('util')
 net = require('net')
 rep = require('zmq').socket('rep')
 
